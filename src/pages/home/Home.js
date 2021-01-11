@@ -8,3 +8,5 @@ function HomeScreen({ navigation }) {
     </View>
   );
 }
+
+export {HomeScreen}
