@@ -8,7 +8,7 @@ function HomeScreen({ navigation }) {
         title="Detail"
         onPress={() =>
           navigation.navigate('ProductDetail', {
-            name: "Ürün adı header'a gelecek"
+            name: "Ürün adı header'a asdfsdfgelecek"
           })
         }
       />
