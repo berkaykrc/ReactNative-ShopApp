@@ -1,41 +1,33 @@
-import axios from 'axios';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { View, Text, ImageBackground, ScrollView } from 'react-native'
 
-import React, {useEffect, useState} from 'react';
-
-import { View, Text, ImageBackground,ScrollView} from 'react-native';
-
-
-
-function ProductDetail({route}) {
-  const {id} = route.params;
-  const [productDetail, setProductDetail] = useState({});
+function ProductDetailsScreen({ route }) {
+  const { id } = route.params
+  const [productDetail, setProductDetail] = useState({})
 
   async function fetchProductData() {
-    const response = await axios.get(
-      `https://fakestoreapi.com/products/${id}`,
-    );
+    const response = await axios.get(`https://fakestoreapi.com/products/${id}`)
 
-    setProductDetail(response.data[0]);
-
+    setProductDetail(response.data[0])
   }
 
   useEffect(() => {
-    fetchProductData();
-  }, []);
+    fetchProductData()
+  }, [])
 
   return (
-    <ScrollView >
-        <ImageBackground
-          resizeMode="contain"
-          source={{uri: productDetail.image}}
-        />
-        <View>
-            <Text>{productDetail.title}</Text>
-            <Text>{productDetail.description}</Text>
-            </View>
-
-     </ScrollView>
-  );
+    <ScrollView>
+      <ImageBackground
+        resizeMode="contain"
+        source={{ uri: productDetail.image }}
+      />
+      <View>
+        <Text>{productDetail.title}</Text>
+        <Text>{productDetail.description}</Text>
+      </View>
+    </ScrollView>
+  )
 }
 
-export {ProductDetail};
+export { ProductDetailsScreen }

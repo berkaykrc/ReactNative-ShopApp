@@ -1,5 +1,5 @@
 export * from './favorites/Favorites'
 export * from './home/Home'
 export * from './home/ProductDetail'
-export * from './shopcart/ShopCart'
+export * from './home/components/Product'
 export * from './home/components/Header'

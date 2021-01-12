@@ -1,21 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import {View, Text, Image, Pressable} from 'react-native';
+import { View, Text, Image, Pressable } from 'react-native'
 
-
-const ShopCart= ({product,onSelect}) => {
+const ShopCart = ({ product, onSelect }) => {
   return (
-   
-      <Pressable onPress={onSelect}>
-      <Image
-        resizeMode="contain"
-        source={{uri: product.image}}
-
-      />
-        <View>
-          <Text>{product.title}</Text>
-        </View>
-        </Pressable>
-  );
-};
-export {ShopCart};
+    <Pressable onPress={onSelect}>
+      <Image resizeMode="contain" source={{ uri: product.image }} />
+      <View>
+        <Text>{product.title}</Text>
+      </View>
+    </Pressable>
+  )
+}
+export { ShopCart }
