@@ -1,18 +1,41 @@
-import React from 'react'
-import { Button, Text, View } from 'react-native'
+import axios from 'axios';
+
+import React, {useState,useEffect} from 'react';
+
+import { View,SafeAreaView,FlatList } from 'react-native';
+
+import {ShopCart} from '../shopcart/ShopCart';
+const api_url = 'https://fakestoreapi.com/products';
 function HomeScreen({ navigation }) {
+  const [shopList, setShopList] = useState([]);
+
+  function fetchData() {
+    axios
+      .get(api_url)
+      .then((response) => setShopList(response.data));
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+ 
+  const renderProduct = ({item}) => (
+    <ShopCart
+      product={item}
+      onSelect={() => navigation.navigate('ProductDetail', {id: item.id})}
+    />
+  );
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-      <Button
-        title="Detail"
-        onPress={() =>
-          navigation.navigate('ProductDetail', {
-            name: "Ürün adı header'a asdfsdfgelecek"
-          })
-        }
-      />
-    </View>
+    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View>
+        <FlatList
+          keyExtractor={(item) => item.id.toString()}
+          data={shopList}
+          renderItem={renderProduct}
+        />
+      </View>
+    </SafeAreaView>
   )
 }
 

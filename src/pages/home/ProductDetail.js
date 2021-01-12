@@ -1,12 +1,41 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import axios from 'axios';
 
-function ProductDetailsScreen({ onPress }) {
+import React, {useEffect, useState} from 'react';
+
+import { View, Text, ImageBackground,ScrollView} from 'react-native';
+
+
+
+function ProductDetail({route}) {
+  const {id} = route.params;
+  const [productDetail, setProductDetail] = useState({});
+
+  async function fetchProductData() {
+    const response = await axios.get(
+      `https://fakestoreapi.com/products/${id}`,
+    );
+
+    setProductDetail(response.data[0]);
+
+  }
+
+  useEffect(() => {
+    fetchProductData();
+  }, []);
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Product Details!</Text>
-    </View>
-  )
+    <ScrollView >
+        <ImageBackground
+          resizeMode="contain"
+          source={{uri: productDetail.image}}
+        />
+        <View>
+            <Text>{productDetail.title}</Text>
+            <Text>{productDetail.description}</Text>
+            </View>
+
+     </ScrollView>
+  );
 }
 
-export { ProductDetailsScreen }
+export {ProductDetail};
