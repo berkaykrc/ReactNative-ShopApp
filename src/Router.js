@@ -2,8 +2,8 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import {
   HomeScreen,
-  FavoritesScreen,
   ProductDetailsScreen,
+  FavoritesScreen,
   LogoTitle
 } from './pages'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -21,15 +21,7 @@ function HomeStackScreen() {
           headerTitle: (props) => <LogoTitle {...props} />
         }}
       />
-      <HomeStack.Screen
-        name="ProductDetail"
-        component={ProductDetailsScreen}
-        options={({
-          route: {
-            params: { name }
-          }
-        }) => ({ title: `${name} Detail` })}
-      />
+      <HomeStack.Screen name="ProductDetail" component={ProductDetailsScreen} />
     </HomeStack.Navigator>
   )
 }
@@ -39,9 +31,25 @@ const Tab = createBottomTabNavigator()
 export default function Router() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeStackScreen} />
-        <Tab.Screen name="Favorites" component={FavoritesScreen} />
+      <Tab.Navigator
+        tabBarOptions={{
+          showLabel: false
+        }}
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeStackScreen}
+          options={{
+            tabBarIcon: ({ focused }) => {}
+          }}
+        />
+        <Tab.Screen
+          name="Favorites"
+          component={FavoritesScreen}
+          options={{
+            tabBarIcon: ({ focused }) => {}
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   )
