@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { View, SafeAreaView, FlatList } from 'react-native'
-import { set } from 'react-native-reanimated'
+import { View, FlatList } from 'react-native'
 import { Product } from './components/Product'
+import { CategorySlider } from './components/CategorySlider'
 
 const api_url = 'https://fakestoreapi.com/products'
 
@@ -26,17 +26,16 @@ function HomeScreen({ navigation }) {
   )
 
   return (
-    <SafeAreaView
-      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-    >
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <View>
+        <CategorySlider />
         <FlatList
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(_, i) => i.toString()}
           data={shopList}
           renderItem={renderProduct}
         />
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 
