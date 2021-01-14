@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView,ImageBackground } from 'react-native'
+import {productDetails} from './styles/homepage_styles'
 
 function ProductDetailsScreen({ route }) {
   const { id } = route.params

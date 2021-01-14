@@ -1,11 +1,23 @@
-import React from 'react'
-import { Text, View } from 'react-native'
-function FavoritesScreen({ navigation }) {
+function FavoritesScreen(props) {
+  const favlist = useSelector((state) => state.favorites);
+
+  const renderFavorites = ({item}) => <FavoriteItem item={item} />;
+
+  const renderHeader = () => (
+    // eslint-disable-next-line react-native/no-inline-styles
+    <Text style={{fontSize: 35, fontWeight: 'bold', margin: 5}}>Favorites</Text>
+  );
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Favorites!</Text>
-    </View>
-  )
+    <SafeAreaView>
+      <FlatList
+        ListHeaderComponent={renderHeader}
+        keyExtractor={(_, i) => i.toString()}
+        data={favlist}
+        renderItem={renderFavorites}
+      />
+    </SafeAreaView>
+  );
 }
 
-export { FavoritesScreen }
+export {FavoritesScreen};
