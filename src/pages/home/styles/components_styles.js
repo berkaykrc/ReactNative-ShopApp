@@ -6,11 +6,11 @@ const deviceSize = Dimensions.get('window');
 const product_item = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: '#bdbdbd',
     margin: 5,
     marginVertical: 10,
-    borderRadius: 15,
+    borderRadius: 5,
   },
   logo: {
     height: deviceSize.height / 4,
@@ -29,7 +29,7 @@ const product_item = StyleSheet.create({
     justifyContent: 'space-between',
   },
   buttonTitle: {
-    color: 'white',
+    color: 'black',
     fontWeight: 'bold',
   },
 });

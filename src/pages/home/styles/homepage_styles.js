@@ -8,12 +8,12 @@ const main = StyleSheet.create({
   },
 });
 
-const productDetails = StyleSheet.create({
+const productdetails = StyleSheet.create({
   container: {
     flex: 1,
   },
   image: {
-    height: deviceSize.height / 2,
+    height: deviceSize.height/2,
     borderColor: '#e0e0e0',
     justifyContent: 'flex-end',
   
@@ -33,4 +33,4 @@ const productDetails = StyleSheet.create({
   },
 });
 
-export {main, productDetails};
+export {main, productdetails};
