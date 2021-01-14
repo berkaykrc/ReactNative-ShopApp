@@ -28,8 +28,9 @@ function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <View>
-        <CategorySlider />
+        
         <FlatList
+          ListHeaderComponent={<CategorySlider />}
           keyExtractor={(_, i) => i.toString()}
           data={shopList}
           renderItem={renderProduct}
