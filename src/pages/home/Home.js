@@ -26,8 +26,9 @@ function HomeScreen({ navigation }) {
   )
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor:'#f5f5f5'}}>
       <View>
+
         <FlatList
           ListHeaderComponent={<CategorySlider />}
           keyExtractor={(_, i) => i.toString()}
