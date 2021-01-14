@@ -7,7 +7,7 @@ const Product = ({ product, onSelect }) => {
     <Pressable style={{ flex: 1 }} onPress={onSelect}>
       <View style={product_item.container}>
       <Image
-        resizeMode="cover"
+        resizeMode='contain'
         source={{ uri: product.image }}
         style={product_item.logo}
       />
@@ -16,5 +16,5 @@ const Product = ({ product, onSelect }) => {
       </View>
     </Pressable>
   )
-}
+} 
 export { Product }
