@@ -8,7 +8,6 @@ function reducer(state, action) {
         : state
 
     case 'REMOVE_FAVORITE':
-      console.log('merhaba')
       const { favlist } = action.payload
       return { ...state, favorites: favlist }
     case 'PRODUCT_LIST':

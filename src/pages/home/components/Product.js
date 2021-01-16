@@ -16,5 +16,5 @@ const Product = ({ product, onSelect }) => {
       </View>
     </Pressable>
   )
-}
+} 
 export { Product }
