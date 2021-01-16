@@ -15,15 +15,10 @@ function LogoTitle() {
       </TouchableOpacity>
       <View style={header.title}>
         <View style={header.titleContainer}>
-          <Text>Projenin Adı</Text>
+          <Text>E-Shopping</Text>
         </View>
       </View>
       <TouchableOpacity style={header.icon2Container}>
-        {/*  <Image
-          resizeMode="contain"
-          source={{}}
-          style={header.icon2ImageStyle}
-        /> */}
         <Icon name="shopping-basket" size={30} />
       </TouchableOpacity>
     </View>

@@ -3,4 +3,5 @@ const initialStore = {
   filtered: [],
   favorites: []
 }
+
 export default initialStore

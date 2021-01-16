@@ -3,7 +3,9 @@ import React from 'react'
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import { categorySlider } from './categorySlider_styles'
 import { useDispatch } from 'react-redux'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const categories_url = 'https://fakestoreapi.com/products/categories'
 
@@ -39,7 +41,12 @@ function CategorySlider({ productsList }) {
         onPress={() => onSelectCategory(item)}
       >
         <View style={categorySlider.imageContainer}>
-          <Ionicons name="man" />
+          {item === 'jewelery' && <FontAwesome name="diamond" size={25} />}
+          {item === 'men clothing' && <Ionicons name="man" size={25} />}
+          {item === 'women clothing' && <Ionicons name="woman" size={25} />}
+          {item === 'electronics' && (
+            <MaterialCommunityIcons name="cellphone" size={25} />
+          )}
         </View>
         <Text style={categorySlider.title}>{item}</Text>
       </TouchableOpacity>
@@ -48,7 +55,6 @@ function CategorySlider({ productsList }) {
 
   return (
     <View style={{ padding: 15 }}>
-      <Text>Categories</Text>
       <FlatList
         horizontal
         data={categories}

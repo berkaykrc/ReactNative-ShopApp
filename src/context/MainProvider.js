@@ -5,7 +5,7 @@ import reducer from './reducer'
 import store from './store'
 
 function MainProvider({ children }) {
-  return <Provider store={createStore(reducer, store)}> {children} </Provider>
+  return <Provider store={createStore(reducer, store)}>{children} </Provider>
 }
 
 export default MainProvider

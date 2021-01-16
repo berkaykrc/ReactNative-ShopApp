@@ -2,8 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
-import MainProvider from './context/MainProvider'
-
+import MainProvier from './context/MainProvider'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {
   HomeScreen,
@@ -33,7 +32,7 @@ const Tab = createBottomTabNavigator()
 
 export default function Router() {
   return (
-    <MainProvider>
+    <MainProvier>
       <NavigationContainer>
         <Tab.Navigator
           tabBarOptions={{
@@ -64,6 +63,6 @@ export default function Router() {
           />
         </Tab.Navigator>
       </NavigationContainer>
-    </MainProvider>
+    </MainProvier>
   )
 }

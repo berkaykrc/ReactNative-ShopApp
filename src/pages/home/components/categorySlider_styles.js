@@ -7,7 +7,7 @@ const categorySlider = StyleSheet.create({
     padding: 8,
     paddingBottom: 8,
     backgroundColor: '#232f3e',
-    borderRadius: 25,
+    borderRadius: 45,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -19,11 +19,16 @@ const categorySlider = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#ffffff'
   },
-  imageStyle: {
-    width: 10,
-    height: 10
-  },
-  title: { marginTop: 5, color: 'white' }
+  // imageStyle: {
+  //   width: 10,
+  //   height: 10
+  // },
+  title: {
+    marginTop: 5,
+    color: 'white',
+    justifyContent: 'center',
+    textAlign: 'center'
+  }
 })
 
 export { categorySlider }

@@ -31,11 +31,11 @@ function HomeScreen({ navigation }) {
   )
 
   return (
-    <View style={main}>
+    <View style={main.container}>
       <View>
         <CategorySlider productsList={products} />
       </View>
-      <View style={main}>
+      <View style={main.container}>
         <FlatList
           keyExtractor={(_, i) => i.toString()}
           data={productList}
