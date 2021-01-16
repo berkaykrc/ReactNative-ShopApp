@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, Image, View, TouchableOpacity } from 'react-native'
 import { header } from './header_styles'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 function LogoTitle() {
   return (
@@ -18,11 +19,12 @@ function LogoTitle() {
         </View>
       </View>
       <TouchableOpacity style={header.icon2Container}>
-        <Image
+        {/*  <Image
           resizeMode="contain"
           source={{}}
           style={header.icon2ImageStyle}
-        />
+        /> */}
+        <Icon name="shopping-basket" size={30} />
       </TouchableOpacity>
     </View>
   )

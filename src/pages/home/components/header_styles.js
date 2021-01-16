@@ -2,15 +2,14 @@ import { StyleSheet } from 'react-native'
 
 const header = StyleSheet.create({
   container: {
-    backgroundColor: 'red',
     flexDirection: 'row',
     height: 50
   },
   icon1Container: {
-    backgroundColor: 'blue',
     width: 50,
     paddingLeft: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   icon1ImageStyle: { width: 30, height: 30 },
   title: { flex: 1, alignItems: 'center', justifyContent: 'center' },
@@ -22,10 +21,9 @@ const header = StyleSheet.create({
     justifyContent: 'center'
   },
   icon2Container: {
-    backgroundColor: 'blue',
-    width: 50,
     paddingRight: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   icon2ImageStyle: {
     width: 30,

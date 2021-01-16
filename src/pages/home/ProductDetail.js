@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, ImageBackground } from 'react-native'
+import { productdetails } from './styles/productdetail_styles'
 
 function ProductDetailsScreen({ route }) {
   const { id } = route.params
@@ -17,8 +18,15 @@ function ProductDetailsScreen({ route }) {
 
   return (
     <ScrollView>
-      <View>
-        <Text>{productDetail.title}</Text>
+      <ImageBackground
+        resizeMode="contain"
+        source={{ uri: productDetail.image }}
+        style={productdetails.image}
+      />
+      <View style={productdetails.detail}>
+        <Text style={productdetails.title}>{productDetail.title}</Text>
+        <Text style={productdetails.title}>{productDetail.price} $</Text>
+        <Text>{productDetail.description}</Text>
       </View>
     </ScrollView>
   )

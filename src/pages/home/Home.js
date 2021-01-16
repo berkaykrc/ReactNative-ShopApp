@@ -4,13 +4,14 @@ import { View, FlatList } from 'react-native'
 import { Product } from './components/Product'
 import { CategorySlider } from './components/CategorySlider'
 import { useDispatch, useSelector } from 'react-redux'
+import { main } from './styles/homepage_styles'
 
 const api_url = 'https://fakestoreapi.com/products'
 
 function HomeScreen({ navigation }) {
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.products)
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
 
   async function fetchData() {
     const { data } = await axios.get(api_url)
@@ -30,11 +31,11 @@ function HomeScreen({ navigation }) {
   )
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={main}>
       <View>
         <CategorySlider productsList={products} />
       </View>
-      <View style={{ flex: 1 }}>
+      <View style={main}>
         <FlatList
           keyExtractor={(_, i) => i.toString()}
           data={productList}
