@@ -39,7 +39,6 @@ function CategorySlider({ productsList }) {
         onPress={() => onSelectCategory(item)}
       >
         <View style={categorySlider.imageContainer}>
-          {/* <Image resizeMode="contain" style={categorySlider.imageStyle} /> */}
           <Ionicons name="man" />
         </View>
         <Text style={categorySlider.title}>{item}</Text>
