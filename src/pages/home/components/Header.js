@@ -14,9 +14,6 @@ function LogoTitle() {
         />
       </TouchableOpacity>
       <View style={header.title}>
-        <View style={header.titleContainer}>
-          <Text>E-Shopping</Text>
-        </View>
       </View>
       <TouchableOpacity style={header.icon2Container}>
         <Icon name="shopping-basket" size={30} />

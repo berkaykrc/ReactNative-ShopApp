@@ -12,7 +12,12 @@ const header = StyleSheet.create({
     alignItems: 'center'
   },
   icon1ImageStyle: { width: 30, height: 30 },
-  title: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  title: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 17
+  },
   titleContainer: {
     height: 20,
     borderRadius: 25,
