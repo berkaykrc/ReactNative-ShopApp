@@ -37,7 +37,6 @@ function HomeScreen({ navigation }) {
       </View>
       <View style={main.container}>
         <FlatList
-          ListHeaderComponent={<CategorySlider />}
           keyExtractor={(_, i) => i.toString()}
           data={productList}
           renderItem={renderProduct}
