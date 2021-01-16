@@ -3,15 +3,19 @@ import React, { useState, useEffect } from 'react'
 import { View, FlatList } from 'react-native'
 import { Product } from './components/Product'
 import { CategorySlider } from './components/CategorySlider'
+import { useDispatch, useSelector } from 'react-redux'
 
 const api_url = 'https://fakestoreapi.com/products'
 
 function HomeScreen({ navigation }) {
-  const [shopList, setShopList] = useState({})
+  const dispatch = useDispatch()
+  const productList = useSelector((state) => state.products)
+  const [products, setProducts] = useState([]);
 
   async function fetchData() {
     const { data } = await axios.get(api_url)
-    setShopList(data)
+    dispatch({ type: 'PRODUCT_LIST', payload: { data } })
+    setProducts(data)
   }
 
   useEffect(() => {
@@ -26,12 +30,14 @@ function HomeScreen({ navigation }) {
   )
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1 }}>
       <View>
-        <CategorySlider />
+        <CategorySlider productsList={products} />
+      </View>
+      <View style={{ flex: 1 }}>
         <FlatList
           keyExtractor={(_, i) => i.toString()}
-          data={shopList}
+          data={productList}
           renderItem={renderProduct}
         />
       </View>
