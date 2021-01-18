@@ -38,7 +38,7 @@ function FavoritesScreen() {
 
   const renderHeader = () => (
     <View
-      style={{ borderRadius: 14, backgroundColor: '#bdbdbd', marginTop: 5 }}
+      style={{ borderRadius: 14, backgroundColor: '', margin: 10 }}
     >
       <Text style={{ fontSize: 35, fontWeight: 'bold', margin: 5 }}>
         Favorites
@@ -52,6 +52,7 @@ function FavoritesScreen() {
       keyExtractor={(_, i) => i.toString()}
       data={storeFavs}
       renderItem={renderFavorites}
+    
     />
   )
 }

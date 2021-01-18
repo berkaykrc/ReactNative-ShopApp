@@ -1,10 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { View, Text, ScrollView, ImageBackground, Button } from 'react-native'
+import { View, Text, ScrollView, ImageBackground, Button,TouchableOpacity } from 'react-native'
 import { productdetails } from './styles/productdetail_styles'
 import { useDispatch, useSelector } from 'react-redux'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-
+import Icon from 'react-native-vector-icons/Fontisto'
 function ProductDetailsScreen({ route }) {
   const { id } = route.params
   const [productDetail, setProductDetail] = useState({})
@@ -59,10 +59,17 @@ function ProductDetailsScreen({ route }) {
       />
       <View style={productdetails.detail}>
         <Text style={productdetails.title}>{productDetail.title}</Text>
-        <Text style={productdetails.title}>{productDetail.price} $</Text>
+        
         <Text>{productDetail.description}</Text>
-        <Button title="like" onPress={() => saveFavorites(productDetail)} />
-        <Button title="cart" onPress={() => onAddCart(productDetail)} />
+       <TouchableOpacity style={productdetails.icon} onPress={() => saveFavorites(productDetail)}>
+        <Icon  name='favorite' color={'orange'} size={40}  />
+       </TouchableOpacity>
+        
+        <View style={{padding:10,flexDirection:'row',justifyContent:'space-between',backgroundColor:'orange'}}>
+        <Text style={productdetails.title}>{productDetail.price} $</Text>
+        <Button title="cart" style={{}} onPress={() => onAddCart(productDetail)} />
+        </View>
+        
       </View>
     </ScrollView>
   )

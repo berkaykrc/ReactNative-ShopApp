@@ -6,6 +6,12 @@ const productdetails = StyleSheet.create({
   container: {
     flex: 1
   },
+  icon:{
+    bottom:590,
+    position:'absolute',
+    right:20,
+  }
+  ,
   image: {
     height: deviceSize.height / 2,
     borderColor: '#e0e0e0',

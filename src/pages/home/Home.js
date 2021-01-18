@@ -40,6 +40,7 @@ function HomeScreen({ navigation }) {
           keyExtractor={(_, i) => i.toString()}
           data={productList}
           renderItem={renderProduct}
+          numColumns={2}
         />
       </View>
     </View>
