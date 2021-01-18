@@ -35,7 +35,6 @@ function LogoTitle() {
     try {
       const jsonValue = await AsyncStorage.getItem('buyHistory')
       const parsedValue = jsonValue != null ? JSON.parse(jsonValue) : null
-      console.log(parsedValue + '-----------------')
     } catch (e) {
       console.log(e)
     }

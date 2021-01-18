@@ -2,7 +2,6 @@ function reducer(state, action) {
   switch (action.type) {
     case 'ADD_FAVORITE':
       const { productDetail } = action.payload
-      console.log(productDetail)
       const index = state.favorites.findIndex(
         (fav) => fav.id === productDetail.id
       )

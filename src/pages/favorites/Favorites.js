@@ -7,14 +7,14 @@ import { set } from 'react-native-reanimated'
 
 function FavoritesScreen() {
   
-  const [storeFavs, setStoreFavs] = React.useState(null)
+  const [storeFavs, setStoreFavs] = React.useState([])
 
   async function getFavorites() {
     try {
       const jsonValue = await AsyncStorage.getItem('favorites')
-      const favo = jsonValue != null ? JSON.parse(jsonValue) : null
+      const favo = jsonValue != null ? JSON.parse(jsonValue) : []
       console.log(favo)
-      setStoreFavs(favo)
+      setStoreFavs([...favo])
     } catch (error) {
     
     }
@@ -22,11 +22,11 @@ function FavoritesScreen() {
 
   React.useEffect(() => {
     getFavorites()
-  }, [])
+  }, [storeFavs])
 
   async function disLike(id) {
     const newArray = [...storeFavs]
-   const index = newArray.findIndex((e) => e.id === id)
+    const index = newArray.findIndex((e) => e.id === id)
     newArray.splice(index, 1)
     await AsyncStorage.setItem('favorites',JSON.stringify(newArray))
     setStoreFavs(newArray)
