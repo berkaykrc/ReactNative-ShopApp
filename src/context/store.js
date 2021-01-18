@@ -1,7 +1,8 @@
 const initialStore = {
   products: [],
   filtered: [],
-  favorites: []
+  favorites: [],
+  cart: []
 }
 
 export default initialStore
