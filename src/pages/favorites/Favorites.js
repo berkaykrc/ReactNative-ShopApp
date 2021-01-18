@@ -3,19 +3,20 @@ import { Text, FlatList, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import React from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { set } from 'react-native-reanimated'
 
 function FavoritesScreen() {
-  const dispatch = useDispatch()
-  const favlist = useSelector((state) => state.favorites)
+  
   const [storeFavs, setStoreFavs] = React.useState(null)
 
   async function getFavorites() {
     try {
       const jsonValue = await AsyncStorage.getItem('favorites')
       const favo = jsonValue != null ? JSON.parse(jsonValue) : null
+      console.log(favo)
       setStoreFavs(favo)
     } catch (error) {
-      console.log('cant get favorites')
+    
     }
   }
 
@@ -23,11 +24,12 @@ function FavoritesScreen() {
     getFavorites()
   }, [])
 
-  function disLike(id) {
-    const newArray = [...favlist]
-    const index = newArray.findIndex((e) => e.id === id)
+  async function disLike(id) {
+    const newArray = [...storeFavs]
+   const index = newArray.findIndex((e) => e.id === id)
     newArray.splice(index, 1)
-    dispatch({ type: 'REMOVE_FAVORITE', payload: { favlist: newArray } })
+    await AsyncStorage.setItem('favorites',JSON.stringify(newArray))
+    setStoreFavs(newArray)
   }
 
   const renderFavorites = ({ item }) => (

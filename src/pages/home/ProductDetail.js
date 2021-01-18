@@ -35,10 +35,7 @@ function ProductDetailsScreen({ route }) {
       if (!newHistory) {
         newHistory = []
       }
-      console.log(favs)
-      console.log(index)
-      console.log(favs[index])
-      newHistory.push(favs[index])
+      newHistory.push(productDetail)
       await AsyncStorage.setItem('favorites', JSON.stringify(newHistory))
     } catch (e) {
       console.log(e)
