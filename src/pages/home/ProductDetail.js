@@ -36,7 +36,7 @@ function ProductDetailsScreen({ route }) {
         newHistory = []
       }
       newHistory.push(productDetail)
-      await AsyncStorage.setItem('favorites', JSON.stringify(newHistory))
+      await AsyncStorage.setItem('favorites', JSON.stringify(newHistory))//adasd
     } catch (e) {
       console.log(e)
     }
