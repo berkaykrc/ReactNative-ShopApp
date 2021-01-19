@@ -1,6 +1,7 @@
 export * from './favorites/Favorites'
 export * from './home/Home'
 export * from './home/ProductDetail'
+export * from './home/History'
 export * from './home/components/Product'
 export * from './home/components/Header'
 export * from './home/components/CategorySlider'

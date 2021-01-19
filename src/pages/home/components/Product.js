@@ -11,10 +11,12 @@ const Product = ({ product, onSelect }) => {
           source={{ uri: product.image }}
           style={product_item.logo}
         />
-        <Text numberOfLines={1} style={product_item.buttonTitle}>{product.title}</Text>
+        <Text numberOfLines={1} style={product_item.buttonTitle}>
+          {product.title}
+        </Text>
         <Text style={product_item.priceTitle}>${product.price}</Text>
       </View>
     </Pressable>
   )
-} 
+}
 export { Product }

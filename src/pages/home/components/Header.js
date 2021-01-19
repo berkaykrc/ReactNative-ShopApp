@@ -34,7 +34,7 @@ function LogoTitle() {
   async function readStorage() {
     try {
       const jsonValue = await AsyncStorage.getItem('buyHistory')
-      const parsedValue = jsonValue != null ? JSON.parse(jsonValue) : null
+      return jsonValue != null ? JSON.parse(jsonValue) : null
     } catch (e) {
       console.log(e)
     }
@@ -71,18 +71,21 @@ function LogoTitle() {
           onRequestClose={() => {
             Alert.alert('Modal has been closed.')
           }}
-          >
+        >
           <View style={styles.modalView}>
+            <TouchableOpacity style={{ position: 'absolute', right:15, }}>
+              <Icon name="history" color="#232f3e" size={25} />
+            </TouchableOpacity>
             <ModalCart />
             <View
               style={{
                 justifyContent: 'flex-end'
               }}
-              >
-                <View style={{flexDirection:'row',alignItems:'flex-end'}}> 
-              <Text style={styles.textStyle2}>Toplam Tutar:</Text>
-              <Text style={styles.textStyle2}>{cartSummary()}</Text>
-                </ View>
+            >
+              <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+                <Text style={styles.textStyle2}>Toplam Tutar:</Text>
+                <Text style={styles.textStyle2}>{cartSummary()}</Text>
+              </View>
               <TouchableOpacity
                 style={{
                   ...styles.openButton,
@@ -94,12 +97,15 @@ function LogoTitle() {
               >
                 <Text style={styles.textStyle}>Sepeti Kapat</Text>
               </TouchableOpacity>
-              <TouchableOpacity  style={{
+              <TouchableOpacity
+                style={{
                   ...styles.openButton,
                   backgroundColor: '#232f3e',
-                  margin:5
-                }} onPress={handleSuccess}>
-                <Text style={styles.textStyle} >Satın Al</Text>
+                  margin: 5
+                }}
+                onPress={handleSuccess}
+              >
+                <Text style={styles.textStyle}>Satın Al</Text>
               </TouchableOpacity>
             </View>
           </View>

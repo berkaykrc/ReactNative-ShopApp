@@ -11,7 +11,6 @@ function reducer(state, action) {
 
     case 'ADD_CART':
       const cartProduct = action.payload.product
-      console.log(cartProduct)
       return { ...state, cart: [...state.cart, cartProduct] }
 
     case 'REMOVE_FAVORITE':

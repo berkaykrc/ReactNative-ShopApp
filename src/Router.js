@@ -8,7 +8,8 @@ import {
   HomeScreen,
   ProductDetailsScreen,
   FavoritesScreen,
-  LogoTitle
+  LogoTitle,
+  HistoryScreen
 } from './pages'
 
 const HomeStack = createStackNavigator()
@@ -55,8 +56,19 @@ export default function Router() {
             component={FavoritesScreen}
             options={{
               tabBarIcon: ({ focused }) => {
-                let iconName
-                iconName = focused ? 'star' : 'star-outline'
+                let iconName = focused ? 'star' : 'star-outline'
+                return <Icon name={iconName} size={25} />
+              }
+            }}
+          />
+          <Tab.Screen
+            name="History"
+            component={HistoryScreen}
+            options={{
+              tabBarIcon: ({ focused }) => {
+                let iconName = focused
+                  ? 'reload-circle'
+                  : 'reload-circle-outline'
                 return <Icon name={iconName} size={25} />
               }
             }}

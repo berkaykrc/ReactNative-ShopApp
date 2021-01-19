@@ -1,15 +1,22 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { View, Text, ScrollView, ImageBackground, Button, TouchableOpacity } from 'react-native'
+import {
+  View,
+  Text,
+  ScrollView,
+  ImageBackground,
+  Button,
+  TouchableOpacity
+} from 'react-native'
 import { productdetails } from './styles/productdetail_styles'
-import { useDispatch, useSelector } from 'react-redux'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Icon from 'react-native-vector-icons/Fontisto'
+import { useDispatch } from 'react-redux'
+
 function ProductDetailsScreen({ route }) {
   const { id } = route.params
   const [productDetail, setProductDetail] = useState({})
   const dispatch = useDispatch()
-  const favs = useSelector((state) => state.favorites)
 
   async function fetchProductData() {
     const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`)
@@ -20,32 +27,19 @@ function ProductDetailsScreen({ route }) {
     fetchProductData()
   }, [])
 
-  function itemIndexer() {
-    const index = favs.findIndex((fav) => fav.id === productDetail.id)
-    // ilk açılışta -1 döner çünkü favoriler yok
-    return index
-  }
-
   async function saveFavorites() {
-    dispatch({ type: 'ADD_FAVORITE', payload: { productDetail } })
     try {
-      const index = itemIndexer()
       const existingHistory = await AsyncStorage.getItem('favorites')
       let newHistory = JSON.parse(existingHistory)
       if (!newHistory) {
         newHistory = []
       }
       newHistory.push(productDetail)
-      await AsyncStorage.setItem('favorites', JSON.stringify(newHistory))//adasd
+      await AsyncStorage.setItem('favorites', JSON.stringify(newHistory))
     } catch (e) {
       console.log(e)
     }
   }
-
-  // function onLike(product) {
-  //   dispatch({ type: 'ADD_FAVORITE', payload: { product } })
-  //   saveFavorites()
-  // }
 
   function onAddCart(product) {
     dispatch({ type: 'ADD_CART', payload: { product } })
@@ -61,16 +55,19 @@ function ProductDetailsScreen({ route }) {
         <View style={productdetails.icon}>
           <Text style={productdetails.title}>{productDetail.title}</Text>
           <View>
-
-          <TouchableOpacity onPress={() => saveFavorites(productDetail)}>
-            <Icon name='favorite' color={'orange'} size={40} />
-          </TouchableOpacity>
-          </ View>
+            <TouchableOpacity onPress={() => saveFavorites(productDetail)}>
+              <Icon name="favorite" color="orange" size={40} />
+            </TouchableOpacity>
+          </View>
         </View>
         <Text>{productDetail.description}</Text>
         <View style={productdetails.addcart}>
           <Text style={productdetails.title2}>{productDetail.price} $</Text>
-          <Button title="Add To Cart" color='orange' onPress={() => onAddCart(productDetail)} />
+          <Button
+            title="Add To Cart"
+            color="orange"
+            onPress={() => onAddCart(productDetail)}
+          />
         </View>
       </View>
     </ScrollView>
