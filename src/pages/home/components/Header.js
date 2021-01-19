@@ -71,14 +71,18 @@ function LogoTitle() {
           onRequestClose={() => {
             Alert.alert('Modal has been closed.')
           }}
-        >
+          >
           <View style={styles.modalView}>
             <ModalCart />
             <View
               style={{
                 justifyContent: 'flex-end'
               }}
-            >
+              >
+                <View style={{flexDirection:'row',alignItems:'flex-end'}}> 
+              <Text style={styles.textStyle2}>Toplam Tutar:</Text>
+              <Text style={styles.textStyle2}>{cartSummary()}</Text>
+                </ View>
               <TouchableOpacity
                 style={{
                   ...styles.openButton,
@@ -90,8 +94,12 @@ function LogoTitle() {
               >
                 <Text style={styles.textStyle}>Sepeti Kapat</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleSuccess}>
-                <Text>Satın Al</Text>
+              <TouchableOpacity  style={{
+                  ...styles.openButton,
+                  backgroundColor: '#232f3e',
+                  margin:5
+                }} onPress={handleSuccess}>
+                <Text style={styles.textStyle} >Satın Al</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -149,6 +157,11 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  textStyle2: {
+    color: 'black',
     fontWeight: 'bold',
     textAlign: 'center'
   }

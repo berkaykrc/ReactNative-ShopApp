@@ -2,13 +2,13 @@ import { StyleSheet } from 'react-native'
 
 const modal_styles = StyleSheet.create({
   modalitemContainer: {
-    flex: 1,
-    backgroundColor: 'red',
+    flex:1,
+    backgroundColor: 'white',
     flexDirection: 'row',
-    alignContent: 'space-between'
+    padding:5,
+    justifyContent:'space-between'
   },
   modalText: {
-    flex: 1,
     textAlign: 'center'
   }
 })

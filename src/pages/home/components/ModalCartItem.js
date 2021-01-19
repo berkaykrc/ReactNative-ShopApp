@@ -13,6 +13,9 @@ function ModalCartItem({ item }) {
           {item.title}
         </Text>
       </View>
+      <View>
+        <Text style={modal.modalText}>{item.price}</Text>
+      </View>
     </View>
   )
 }
