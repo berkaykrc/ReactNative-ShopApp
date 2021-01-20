@@ -35,11 +35,7 @@ function LogoTitle() {
     try {
       const jsonValue = await AsyncStorage.getItem('buyHistory')
       return jsonValue != null ? JSON.parse(jsonValue) : null
-    } catch (e) {
-      console.log(e)
-    }
-
-    console.log('Done.')
+    } catch (e) {}
   }
 
   async function handleSuccess() {
@@ -52,12 +48,11 @@ function LogoTitle() {
       }
       newHistory.push({ products: myCart, totalPrice })
       await AsyncStorage.setItem('buyHistory', JSON.stringify(newHistory))
-
       dispatch({ type: 'BUY_SUCCESS' })
       setSuccess(!success)
       readStorage()
     } catch (e) {
-      console.log(e)
+      Alert.alert('Hata oluştu', 'Ürün alırken bir hata oluştu')
     }
   }
 
@@ -73,7 +68,7 @@ function LogoTitle() {
           }}
         >
           <View style={styles.modalView}>
-            <TouchableOpacity style={{ position: 'absolute', right:15, }}>
+            <TouchableOpacity style={{ position: 'absolute', right: 15 }}>
               <Icon name="history" color="#232f3e" size={25} />
             </TouchableOpacity>
             <ModalCart />
@@ -118,7 +113,6 @@ function LogoTitle() {
           style={header.icon1ImageStyle}
         />
       </TouchableOpacity>
-      <View style={header.title}>{/* header title */}</View>
       <TouchableOpacity
         style={header.icon2Container}
         onPress={() => setModalVisible(!modalVisible)}

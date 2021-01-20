@@ -4,8 +4,8 @@ const deviceSize = Dimensions.get('window')
 
 const product_item = StyleSheet.create({
   container: {
-    flex:1,
-    padding:10,
+    flex: 1,
+    padding: 10,
     backgroundColor: '#ffffff',
     borderWidth: 3,
     borderColor: '#bdbdbd',
@@ -26,20 +26,20 @@ const product_item = StyleSheet.create({
     flexDirection: 'row'
   },
   buttonTitle: {
-    padding:10,
+    padding: 10,
     color: '#000000',
     fontWeight: 'bold',
-    marginVertical: 3,  
-    borderTopWidth:2,
+    marginVertical: 3,
+    borderTopWidth: 2,
     borderTopColor: '#eeeeee',
-    borderRadius:5,
+    borderRadius: 5
   },
-  priceTitle:{
-    alignSelf:'flex-end',
-    padding:5,
+  priceTitle: {
+    alignSelf: 'flex-end',
+    padding: 5,
     color: 'red',
     fontWeight: 'bold',
-    marginVertical: 2,
+    marginVertical: 2
   }
 })
 export { product_item }

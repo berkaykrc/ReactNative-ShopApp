@@ -5,16 +5,18 @@ import { Text, Image, View } from 'react-native'
 function ModalCartItem({ item }) {
   return (
     <View style={modal.modalitemContainer}>
-      <View>
-        <Image source={{ uri: item.image }} style={{ width: 50, height: 50 }} />
+      <View style={modal.modalImage}>
+        <Image
+          source={{ uri: item.image }}
+          resizeMode="contain"
+          style={{ width: 30, height: 50 }}
+        />
       </View>
-      <View>
-        <Text numberOfLines={2} style={modal.modalText}>
+      <View style={modal.modalTextContainer}>
+        <Text numberOfLines={1} style={modal.modalText}>
           {item.title}
         </Text>
-      </View>
-      <View>
-        <Text style={modal.modalText}>{item.price}</Text>
+        <Text style={modal.modalPrice}>$ {item.price}</Text>
       </View>
     </View>
   )

@@ -5,7 +5,7 @@ const categorySlider = StyleSheet.create({
     width: 100,
     height: 100,
     padding: 8,
-    margin:5,
+    margin: 5,
     paddingBottom: 8,
     backgroundColor: '#232f3e',
     borderRadius: 30,
